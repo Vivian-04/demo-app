@@ -47,7 +47,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no appuser@${{ secrets.APP_SERVER_IP }} << 'ENDSSH'
             set -euo pipefail
             cd /opt/demo-app
-            git pull origin main
 
             NEW_HASH=$(md5sum requirements.txt | cut -d' ' -f1)
             OLD_HASH=$(cat .req_hash 2>/dev/null || echo "")
